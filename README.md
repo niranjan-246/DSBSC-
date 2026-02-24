@@ -49,10 +49,36 @@ Model Waveform
 
 Program
 
+````
+am=5.4;
+fm=386;
+ac=10.8;
+fc=3860;
+fs=38600;
+t=0:1/fs:2/fm;
+em=am*cos(2*3.14*fm*t);
+subplot(3,1,1);
+plot(t,em);
+ec=ac*cos(2*3.14*fc*t);
+subplot(3,1,2);
+plot(t,ec);
+eam1=ac*(1+(em/ac)).*cos(2*3.14*fc*t);
+eam2=ac*(1-(em/ac)).*cos(2*3.14*fc*t);
+edsbsc=eam1-eam2;
+subplot(3,1,3);
+plot(t,edsbsc);
+````
+
 Output Graph
+
+<img width="1918" height="1102" alt="image" src="https://github.com/user-attachments/assets/214ca103-1f02-4cf2-9a9e-e13d14f1d743" />
+
 
 
 Tablular Column
+
+![DSBSC](https://github.com/user-attachments/assets/f61fcc9c-5f45-4e21-b320-1781c1c7c306)
+
 
 
 Result
